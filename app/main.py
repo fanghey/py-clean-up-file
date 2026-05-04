@@ -1,5 +1,6 @@
-import os
+from types import TracebackType
 from typing import Optional, Type
+import os
 
 
 class CleanUpFile:
@@ -13,7 +14,7 @@ class CleanUpFile:
         self,
         exc_type: Optional[Type[BaseException]],
         exc_val: Optional[BaseException],
-        exc_tb
+        exc_tb: Optional[TracebackType],
     ) -> None:
         if os.path.exists(self.filename):
             os.remove(self.filename)
